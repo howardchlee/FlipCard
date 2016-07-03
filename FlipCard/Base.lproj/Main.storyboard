@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,18 +19,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ux6-1D-jfK">
-                                <rect key="frame" x="277" y="520" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="flip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="77a-49-cw9"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tOi-SK-PWh" customClass="FlipCard" customModule="FlipCard" customModuleProvider="target">
+                                <rect key="frame" x="70" y="40" width="460" height="245.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tOi-SK-PWh" secondAttribute="height" multiplier="15:8" id="F27-es-rO6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="frontImage" value="elephant"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="backImage" value="leopard"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="open" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ux6-1D-jfK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OfD-6y-JGH"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ux6-1D-jfK" secondAttribute="bottom" constant="50" id="bej-gI-8hu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tOi-SK-PWh" secondAttribute="trailing" constant="50" id="3pW-w8-P0m"/>
+                            <constraint firstItem="tOi-SK-PWh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="RH3-x0-dAB"/>
+                            <constraint firstItem="tOi-SK-PWh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="VFx-AM-jWE"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,4 +44,8 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="elephant" width="450" height="329"/>
+        <image name="leopard" width="2951" height="2177"/>
+    </resources>
 </document>
